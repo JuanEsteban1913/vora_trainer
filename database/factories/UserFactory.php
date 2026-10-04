@@ -49,8 +49,8 @@ class UserFactory extends Factory
     public function withTwoFactor(): static
     {
         return $this->state(fn (array $attributes) => [
-            'two_factor_secret' => encrypt(\Illuminate\Support\Str::random(10)),
-            'two_factor_recovery_codes' => encrypt(json_encode([\Illuminate\Support\Str::random(10)])),
+            'two_factor_secret' => encrypt(Str::random(10)),
+            'two_factor_recovery_codes' => encrypt(json_encode([Str::random(10)])),
         ]);
     }
 }
