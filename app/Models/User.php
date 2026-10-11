@@ -52,6 +52,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Set the password attribute.
+     */
+    public function setPasswordAttribute($value): void
+    {
+        $this->attributes['password_hash'] = $value;
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
