@@ -54,7 +54,7 @@ class User extends Authenticatable
     /**
      * Set the password attribute.
      */
-    public function setPasswordAttribute($value): void
+    public function setPasswordAttribute(mixed $value): void
     {
         $this->attributes['password_hash'] = $value;
     }
