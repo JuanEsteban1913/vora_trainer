@@ -53,8 +53,6 @@ class User extends Authenticatable
     }
 
     /**
-     * Interact with the user's password.
-     *
      * @return Attribute<string, string>
      */
     protected function password(): Attribute
