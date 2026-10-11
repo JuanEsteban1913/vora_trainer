@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
@@ -52,11 +53,14 @@ class User extends Authenticatable
     }
 
     /**
-     * Set the password attribute.
+     * Interact with the user's password.
      */
-    public function setPasswordAttribute(mixed $value): void
+    protected function password(): Attribute
     {
-        $this->attributes['password_hash'] = $value;
+        return Attribute::make(
+            get: fn () => $this->password_hash,
+            set: fn ($value) => ['password_hash' => $value],
+        );
     }
 
     /**
