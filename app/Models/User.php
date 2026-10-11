@@ -16,12 +16,12 @@ class User extends Authenticatable
     // Indicamos cuál es la llave primaria de la tabla
     protected $primaryKey = 'user_id';
 
-    // Si user_id NO es un número entero auto-incremental, 
+    // Si user_id NO es un número entero auto-incremental,
     // y es generado por mi o de otro tipo, desactiva el incremento automático (si fuera el caso):
     // public $incrementing = false;
     // protected $keyType = 'int';
 
-    // Si la tabla no usa las columnas created_at y updated_at estándar de Laravel, 
+    // Si la tabla no usa las columnas created_at y updated_at estándar de Laravel,
     // puedo desactivarlas con:
     // public $timestamps = false;
 
@@ -39,7 +39,7 @@ class User extends Authenticatable
         'password_hash',
     ];
 
-    // IMPORTANTE: Como en la tabla la contraseña se llama 'password_hash' 
+    // IMPORTANTE: Como en la tabla la contraseña se llama 'password_hash'
     // en lugar de 'password', le decimos a Laravel qué columna usar para el login:
     public function getAuthPassword()
     {
