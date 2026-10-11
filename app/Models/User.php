@@ -2,45 +2,47 @@
 
 namespace App\Models;
 
-use Database\Factories\UserFactory;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Carbon;
 
-/**
- * @property int $id
- * @property string $name
- * @property string $email
- * @property Carbon|null $email_verified_at
- * @property string $password
- * @property string|null $two_factor_secret
- * @property string|null $two_factor_recovery_codes
- * @property Carbon|null $two_factor_confirmed_at
- * @property string|null $remember_token
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- */
-#[Fillable(['name', 'email', 'password'])]
-#[Hidden(['password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token'])]
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // Indicamos el nombre exacto de la tabla en la base de datos
+    protected $table = 'users';
+
+    // Indicamos cuál es la llave primaria de la tabla
+    protected $primaryKey = 'user_id';
+
+    // Si user_id NO es un número entero auto-incremental, 
+    // y es generado por mi o de otro tipo, desactiva el incremento automático (si fuera el caso):
+    // public $incrementing = false;
+    // protected $keyType = 'int';
+
+    // Si la tabla no usa las columnas created_at y updated_at estándar de Laravel, 
+    // puedo desactivarlas con:
+    // public $timestamps = false;
+
+    protected $fillable = [
+        'user_name',
+        'email',
+        'password_hash',
+        'age',
+        'phone_number',
+        'is_active',
+        'domicilio',
+    ];
+
+    protected $hidden = [
+        'password_hash',
+    ];
+
+    // IMPORTANTE: Como en la tabla la contraseña se llama 'password_hash' 
+    // en lugar de 'password', le decimos a Laravel qué columna usar para el login:
+    public function getAuthPassword()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->password_hash;
     }
 }
