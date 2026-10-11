@@ -45,11 +45,11 @@ class User extends Authenticatable
 
     /**
      * Get the password for authentication.
-     */
-    public function getAuthPassword(): string
-    {
-        return $this->password_hash;
-    }
+ */
+public function getAuthPassword(): string
+{
+    return (string) $this->password_hash;
+}
 
     /**
      * Get the attributes that should be cast.
