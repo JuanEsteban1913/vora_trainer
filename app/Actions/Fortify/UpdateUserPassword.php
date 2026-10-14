@@ -18,10 +18,10 @@ class UpdateUserPassword implements UpdatesUserPasswords
      * @param  array<string, string>  $input
      */
     public function update(User $user, array $input): void
-{
-    dd('¡ESTOY EN LA ACCION!', $input);
+    {
+        dd('¡ESTOY EN LA ACCION!', $input);
 
-    Validator::make($input, [
+        Validator::make($input, [
             'current_password' => ['required', 'string', 'current_password:web'],
             'password' => $this->passwordRules(),
         ], [
