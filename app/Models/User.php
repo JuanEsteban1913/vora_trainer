@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
@@ -61,11 +61,12 @@ class User extends Authenticatable
      * @return array<string, string>
      */
     protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-        ];
-    }
+{
+    return [
+        'email_verified_at' => 'datetime',
+        'password_hash' => 'hashed',
+    ];
+}
 
     /**
      * Get the password for authentication.
@@ -79,9 +80,9 @@ class User extends Authenticatable
      * Get the name of the password column for authentication.
      */
     public function getAuthPasswordName()
-    {
-        return 'password_hash';
-    }
+{
+    return 'password_hash';
+}
 
     /**
      * Get the name of the unique identifier for the user.
@@ -98,4 +99,11 @@ class User extends Authenticatable
     {
         return $this->user_id;
     }
+
+    
+    public function getKeyName()
+    {
+        return 'user_id';
+    }
+
 }

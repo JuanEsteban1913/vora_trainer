@@ -13,6 +13,7 @@ use Illuminate\Validation\Rules\Password;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
+use App\Actions\Fortify\UpdateUserPassword;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -41,6 +42,7 @@ class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::createUsersUsing(CreateNewUser::class);
+        Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
     }
 
     /**
