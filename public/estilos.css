@@ -1,0 +1,211 @@
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: white;
+}
+
+/* Contenedor principal que divide la pantalla a la mitad */
+.contenedor-login {
+    display: flex;
+    height: 100vh; /* Ocupa el 100% del alto de la pantalla */
+}
+
+/* =========================================
+   MITAD IZQUIERDA (Imagen y Motivación)
+========================================= */
+.mitad-izquierda {
+    flex: 1; /* Toma el 50% del ancho */
+
+    background-color: #151515;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url('/login.png');
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cabecera-izquierda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-pequeno {
+    height: 55px;
+    mix-blend-mode: screen;
+}
+
+.volver-inicio {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.textos-motivacionales h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.textos-motivacionales p {
+    color: #aaa;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.etiquetas-seguridad {
+    display: flex;
+    gap: 15px;
+}
+
+.etiquetas-seguridad span {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #bbb;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   MITAD DERECHA (Formulario)
+========================================= */
+.mitad-derecha {
+    flex: 1; /* Toma el otro 50% del ancho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f0f0f; /* Color súper oscuro, casi negro */
+}
+
+.caja-formulario {
+    width: 100%;
+    max-width: 400px; /* Evita que el formulario sea demasiado ancho */
+}
+
+.caja-formulario h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* El cuadro rojo de error que me mostraste en la imagen */
+.alerta-error {
+    background-color: rgba(255, 50, 50, 0.1);
+    border: 1px solid #ff4444;
+    color: #ff4444;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.grupo-input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #eee;
+    font-weight: bold;
+}
+
+.etiquetas-contrasena {
+    display: flex;
+    justify-content: space-between;
+}
+
+.olvido-clave {
+    color: #d4ff00; /* Color verde/amarillo neón */
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.grupo-input input {
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    padding: 14px;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+.grupo-input input:focus {
+    border-color: #d4ff00; /* El borde se pinta de neón al escribir */
+}
+
+/* Botón principal */
+.btn-neon {
+    width: 100%;
+    background-color: #d4ff00; /* Verde neón */
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.separador {
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    margin: 25px 0;
+    position: relative;
+}
+
+.separador::before,
+.separador::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background-color: #333;
+}
+
+.separador::before { left: 0; }
+.separador::after { right: 0; }
+
+.btn-google {
+    width: 100%;
+    background-color: #161616;
+    color: #555;
+    border: 1px solid #222;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: not-allowed;
+    margin-bottom: 30px;
+}
+
+.enlace-registro {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+.enlace-registro a {
+    color: #d4ff00;
+    text-decoration: none;
+    font-weight: bold;
+}
