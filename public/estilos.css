@@ -24,7 +24,9 @@ body {
     flex: 1; /* Toma el 50% del ancho */
 
     background-color: #151515;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url('/login.png');
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
+        url('/login.png');
     background-size: cover;
     background-position: center;
     padding: 40px;
@@ -176,7 +178,7 @@ body {
 
 .separador::before,
 .separador::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     width: 30%;
@@ -184,8 +186,12 @@ body {
     background-color: #333;
 }
 
-.separador::before { left: 0; }
-.separador::after { right: 0; }
+.separador::before {
+    left: 0;
+}
+.separador::after {
+    right: 0;
+}
 
 .btn-google {
     width: 100%;
