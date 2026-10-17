@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('class_registrations', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-    $table->foreignId('schedule_id')->constrained('class_schedules')->cascadeOnDelete();
-    $table->string('status', 25)->default('PENDING');
-    $table->timestamps();
-});
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('schedule_id')->constrained('class_schedules')->cascadeOnDelete();
+            $table->string('status', 25)->default('PENDING');
+            $table->timestamps();
+        });
     }
 
     /**

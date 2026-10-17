@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('membership_user', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-    $table->foreignId('membership_id')->constrained('memberships')->cascadeOnDelete();
-    $table->date('start_date')->nullable();
-    $table->date('end_date')->nullable();
-    $table->boolean('is_active')->default(true);
-    $table->timestamps();
-});
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('membership_id')->constrained('memberships')->cascadeOnDelete();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
+        });
     }
 
     /**

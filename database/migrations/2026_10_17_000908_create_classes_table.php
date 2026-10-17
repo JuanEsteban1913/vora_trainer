@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('classes', function (Blueprint $table) {
-    $table->id();
-    $table->string('class_name', 100)->unique();
-    $table->text('description')->nullable();
-    $table->integer('max_capacity');
-    $table->integer('duration_minutes');
-    $table->foreignId('instructor_id')->nullable()->constrained('instructors')->nullOnDelete();
-    $table->timestamps();
-});
-}
+            $table->id();
+            $table->string('class_name', 100)->unique();
+            $table->text('description')->nullable();
+            $table->integer('max_capacity');
+            $table->integer('duration_minutes');
+            $table->foreignId('instructor_id')->nullable()->constrained('instructors')->nullOnDelete();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

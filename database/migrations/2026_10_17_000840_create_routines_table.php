@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('routines', function (Blueprint $table) {
-    $table->id();
-    $table->string('name', 45)->nullable();
-    $table->text('description')->nullable();
-    $table->string('muscle_group', 45)->nullable();
-    $table->string('difficulty', 45)->nullable();
-    $table->timestamps();
-});
-}
+            $table->id();
+            $table->string('name', 45)->nullable();
+            $table->text('description')->nullable();
+            $table->string('muscle_group', 45)->nullable();
+            $table->string('difficulty', 45)->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

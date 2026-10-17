@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-   Schema::create('memberships', function (Blueprint $table) {
-    $table->id();
-    $table->string('name', 45);
-    $table->text('description')->nullable();
-    $table->decimal('price', 10, 2)->nullable();
-    $table->integer('duration_days')->nullable();
-    $table->timestamps();
-});
-}
+        Schema::create('memberships', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 45);
+            $table->text('description')->nullable();
+            $table->decimal('price', 10, 2)->nullable();
+            $table->integer('duration_days')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

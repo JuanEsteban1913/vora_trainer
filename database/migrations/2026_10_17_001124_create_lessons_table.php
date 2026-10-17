@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lessons', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('course_id')->constrained('courses')->cascadeOnDelete();
-    $table->string('title', 250);
-    $table->text('description')->nullable();
-    $table->string('video_url', 2048);
-    $table->integer('duration_seconds');
-    $table->integer('order_in_course');
-    $table->timestamps();
-});
+            $table->id();
+            $table->foreignId('course_id')->constrained('courses')->cascadeOnDelete();
+            $table->string('title', 250);
+            $table->text('description')->nullable();
+            $table->string('video_url', 2048);
+            $table->integer('duration_seconds');
+            $table->integer('order_in_course');
+            $table->timestamps();
+        });
     }
 
     /**

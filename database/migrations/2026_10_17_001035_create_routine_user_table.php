@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('routine_user', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-    $table->foreignId('routine_id')->constrained('routines')->cascadeOnDelete();
-    $table->integer('sets')->nullable();
-    $table->integer('reps')->nullable();
-    $table->decimal('weight', 5, 2)->nullable();
-    $table->text('notes')->nullable();
-    $table->timestamps();
-});
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('routine_id')->constrained('routines')->cascadeOnDelete();
+            $table->integer('sets')->nullable();
+            $table->integer('reps')->nullable();
+            $table->decimal('weight', 5, 2)->nullable();
+            $table->text('notes')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

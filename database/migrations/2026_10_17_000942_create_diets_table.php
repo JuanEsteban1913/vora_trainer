@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('diets', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-    $table->string('meal_type', 45)->nullable();
-    $table->text('food')->nullable();
-    $table->integer('calories')->nullable();
-    $table->date('date_registered')->nullable();
-    $table->timestamps();
-});
-}
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->string('meal_type', 45)->nullable();
+            $table->text('food')->nullable();
+            $table->integer('calories')->nullable();
+            $table->date('date_registered')->nullable();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
