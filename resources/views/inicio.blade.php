@@ -13,7 +13,7 @@
         <!-- MITAD IZQUIERDA: Imagen y textos -->
         <section class="mitad-izquierda">
             <div class="cabecera-izquierda">
-                <!-- Aquí usaremos el logo que ya subiste -->
+
                 <img src="/logo.png" alt="Logo Vora" class="logo-pequeno">
                 <a href="#" class="volver-inicio">← Volver al inicio</a>
             </div>
@@ -35,34 +35,45 @@
             <div class="caja-formulario">
                 <h2>Bienvenido de vuelta</h2>
                 <p class="subtitulo">Ingresa tus credenciales para acceder a tu cuenta.</p>
+                @if($errors->any())
+    <div style="color: red; margin-bottom: 15px;">
+        {{ $errors->first() }}
+    </div>
+@endif
 
-                <!-- Mensaje de error de ejemplo (como en tu imagen) -->
-                <div class="alerta-error">
-                    ⚠️ Error en las credenciales
-                </div>
+                <!-- Muestra el error real de Laravel si existe -->
+@if ($errors->any())
+    <div class="alerta-error">
+        ⚠️ {{ $errors->first() }}
+    </div>
+@endif
 
-                <form>
-                    <div class="grupo-input">
-                        <label for="correo">Correo electrónico</label>
-                        <input type="email" id="correo" placeholder="correo@ejemplo.com">
-                    </div>
+                <form method="POST" action="/login">
+    @csrf
+    
+    <div class="grupo-input">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="email" value="{{ old('email') }}" placeholder="correo@ejemplo.com" required autofocus>
+    </div>
 
-                    <div class="grupo-input">
-                        <div class="etiquetas-contrasena">
-                            <label for="clave">Contraseña</label>
-                            <a href="#" class="olvido-clave">¿Olvidaste tu contraseña?</a>
-                        </div>
-                        <input type="password" id="clave" placeholder="••••••••">
-                    </div>
+    <div class="grupo-input">
+        <div class="etiquetas-contrasena">
+            <label for="clave">Contraseña</label>
+            <a href="#" class="olvido-clave">¿Olvidaste tu contraseña?</a>
+        </div>
+        <input type="password" id="clave" name="password" placeholder="••••••••" required>
+    </div>
 
-                    <button type="button" class="btn-neon">Iniciar sesión</button>
-                </form>
+    <button type="submit" class="btn-neon">Iniciar sesión</button>
+</form>
 
                 <div class="separador">o continúa con</div>
 
                 <button class="btn-google">Iniciar con Google — Próximamente</button>
 
-                <p class="enlace-registro">¿No tienes cuenta? <a href="#">Regístrate</a></p>
+                <p class="enlace-registro">
+    ¿No tienes cuenta? <a href="{{ route('register') }}">Regístrate</a>
+</p>
             </div>
         </section>
 

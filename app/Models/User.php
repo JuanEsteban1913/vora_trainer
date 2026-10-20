@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use Database\Factories\UserFactory;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
+    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -18,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var string
      */
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'id';
 
     /**
      * Indicates if the IDs are auto-incrementing.
@@ -37,18 +36,23 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * The attributes that are mass assignable.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $fillable = [
         'user_name',
         'email',
         'password_hash',
+        'age',
+        'phone_number',
+        'domicilio',
+        'ultimo_acceso',
+        'is_active',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $hidden = [
         'password_hash',
@@ -71,7 +75,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Get the password for authentication.
      */
-    public function getAuthPassword(): string
+    public function getAuthPassword()
     {
         return (string) $this->password_hash;
     }
@@ -82,26 +86,5 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getAuthPasswordName()
     {
         return 'password_hash';
-    }
-
-    /**
-     * Get the name of the unique identifier for the user.
-     */
-    public function getAuthIdentifierName()
-    {
-        return 'user_id';
-    }
-
-    /**
-     * Get the unique identifier for the user.
-     */
-    public function getAuthIdentifier()
-    {
-        return $this->user_id;
-    }
-
-    public function getKeyName()
-    {
-        return 'user_id';
     }
 }
