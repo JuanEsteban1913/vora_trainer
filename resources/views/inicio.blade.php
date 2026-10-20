@@ -41,7 +41,7 @@
     </div>
 @endif
 
-                <!-- Muestra el error real de Laravel si existe -->
+                
 @if ($errors->any())
     <div class="alerta-error">
         ⚠️ {{ $errors->first() }}

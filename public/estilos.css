@@ -14,14 +14,14 @@ body {
 /* Contenedor principal que divide la pantalla a la mitad */
 .contenedor-login {
     display: flex;
-    height: 100vh; /* Ocupa el 100% del alto de la pantalla */
+    height: 100vh;
 }
 
 /* =========================================
    MITAD IZQUIERDA (Imagen y Motivación)
 ========================================= */
 .mitad-izquierda {
-    flex: 1; /* Toma el 50% del ancho */
+    flex: 1;
 
     background-color: #151515;
     background-image:
@@ -82,16 +82,16 @@ body {
    MITAD DERECHA (Formulario)
 ========================================= */
 .mitad-derecha {
-    flex: 1; /* Toma el otro 50% del ancho */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0f0f0f; /* Color súper oscuro, casi negro */
+    background-color: #0f0f0f;
 }
 
 .caja-formulario {
     width: 100%;
-    max-width: 400px; /* Evita que el formulario sea demasiado ancho */
+    max-width: 400px;
 }
 
 .caja-formulario h2 {
@@ -105,7 +105,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* El cuadro rojo de error que me mostraste en la imagen */
+
 .alerta-error {
     background-color: rgba(255, 50, 50, 0.1);
     border: 1px solid #ff4444;
@@ -135,7 +135,7 @@ body {
 }
 
 .olvido-clave {
-    color: #d4ff00; /* Color verde/amarillo neón */
+    color: #d4ff00;
     font-size: 12px;
     text-decoration: none;
 }
@@ -151,13 +151,13 @@ body {
 }
 
 .grupo-input input:focus {
-    border-color: #d4ff00; /* El borde se pinta de neón al escribir */
+    border-color: #d4ff00;
 }
 
 /* Botón principal */
 .btn-neon {
     width: 100%;
-    background-color: #d4ff00; /* Verde neón */
+    background-color: #d4ff00;
     color: black;
     font-weight: bold;
     font-size: 16px;

@@ -25,7 +25,7 @@ Route::post('/login', function (Request $request) {
         'password' => ['required'],
     ]);
 
-    // Usamos 'password_hash' tal como está configurado en tu base de datos
+    // Usamos 'password_hash' tal como está configurado en la base de datos
     if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
         $request->session()->regenerate();
         return redirect()->intended('/dashboard');
